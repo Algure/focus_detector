@@ -1,3 +1,4 @@
 library focus_detector;
 
-export 'src/custom_focus_area_widget.dart';
+export 'src/focus_area_widget.dart';
+export 'src/focus_pointer_detector.dart';

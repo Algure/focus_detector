@@ -80,13 +80,74 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FocusDetector(),
-            FocusDetector(),
-            FocusDetector(),
-            FocusDetector(),
-            FocusDetector(),
-            FocusDetector(),
-            FocusDetector(),
+            FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color1 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color1 = Colors.amber;
+                });
+              },
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: color1,
+                )
+            ),
+            FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color2 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color2 = Colors.amber;
+                });
+              },
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: color2,
+                )
+            ),
+            FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color3 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color3 = Colors.amber;
+                });
+              },
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: color3,
+                )
+            ),
+            FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color4 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color4 = Colors.amber;
+                });
+              },
+                child: Container(
+                  height: 100,
+                  width: 100,
+                  color: color4,
+                )
+            ),
           ],
         ),
       ),
