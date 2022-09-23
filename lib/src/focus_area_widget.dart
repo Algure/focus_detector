@@ -1,28 +1,64 @@
 
+import 'dart:core';
+import 'dart:core' as cr;
+
 import 'package:flutter/material.dart';
+//
+// class FocusPointerAreaNotifier extends InheritedWidget {
+//
+//   bool isPointerDown;
+//
+//   FocusPointerAreaNotifier({
+//     super.key,
+//     this.isPointerDown = true,
+//     required super.child});
+//
+//   static of(BuildContext context) {
+//     return context
+//         .dependOnInheritedWidgetOfExactType<FocusPointerAreaNotifier>()!;
+//   }
+//
+//   @override
+//   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
+//
+// }
 
 class FocusPointerArea extends StatelessWidget {
+  FocusPointerArea({Key? key, required this.child}) : super(key: key);
 
-  FocusPointerArea({
-    Key? key,
-    required this.child}) : super(key: key);
+  final Widget child;
+  final ValueNotifier<bool> _counterValueNotifier = ValueNotifier<bool>(true);
 
-  final ValueNotifier<bool> pointerNotifier = ValueNotifier<bool>(false);
-  Widget child;
+  bool ischanged = false;
 
   @override
   Widget build(BuildContext context) {
     return Listener(
-      onPointerDown: (_){
-        pointerNotifier.value = true;
-      },
-      onPointerUp: (_){
-        pointerNotifier.value = false;
-      },
+      onPointerDown: (mouseEvent){
+          _counterValueNotifier.value = true;
+          _counterValueNotifier.notifyListeners();
+        },
+        onPointerUp: (mouseEvent){
+          _counterValueNotifier.value = false;
+          _counterValueNotifier.notifyListeners();
+        },
       child: child,
     );
   }
+
+  void addListener(Function() onChanged){
+    _counterValueNotifier.addListener(onChanged);
+  }
+
+  bool getPointerState()=> _counterValueNotifier.value;
+
+  static of(BuildContext context) {
+    return context
+        .findAncestorWidgetOfExactType<FocusPointerArea>()!;
+  }
 }
+
+
 
 // class FocusDetector extends StatefulWidget {
 //   FocusDetector({

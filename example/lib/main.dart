@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool isPointed = false;
 
+  ValueNotifier<bool> pointerNotifier = ValueNotifier<bool>(true);
 
 
   @override
@@ -69,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
     focusNode.requestFocus(focusNode2);
   }
 
+
   @override
   Widget build(BuildContext context) {
 
@@ -76,81 +78,176 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            FocusPointerDetector(
-              onFocused: (){
+      body: FocusPointerAreaNotifier(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color1 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: (){
+                  setState(() {
+                    color1 = Colors.amber;
+                  });
+                },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: color1,
+                  )
+              ),
+              FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color2 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: (){
+                  setState(() {
+                    color2 = Colors.amber;
+                  });
+                },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: color2,
+                  )
+              ),
+              FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color3 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: (){
+                  setState(() {
+                    color3 = Colors.amber;
+                  });
+                },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: color3,
+                  )
+              ),
+              FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color4 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: (){
+                  setState(() {
+                    color4 = Colors.amber;
+                  });
+                },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: color4,
+                  )
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _getWidgetNoPackage(){
+    return  Listener(
+      onPointerDown: (_){
+        pointerNotifier.value = true;
+      },
+      onPointerUp: (_){
+        pointerNotifier.value = false;
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          MouseRegion(
+              onEnter: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color1 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onExit: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color1 = Colors.amber;
                 });
               },
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: color1,
-                )
-            ),
-            FocusPointerDetector(
-              onFocused: (){
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color1,
+              )
+          ),
+          MouseRegion(
+              onEnter: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color2 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onExit: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color2 = Colors.amber;
                 });
               },
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: color2,
-                )
-            ),
-            FocusPointerDetector(
-              onFocused: (){
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color2,
+              )
+          ),
+          MouseRegion(
+              onEnter: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color3 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onExit: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color3 = Colors.amber;
                 });
               },
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: color3,
-                )
-            ),
-            FocusPointerDetector(
-              onFocused: (){
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color3,
+              )
+          ),
+          MouseRegion(
+              onEnter: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color4 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onExit: (_){
+                if(!pointerNotifier.value) return;
                 setState(() {
                   color4 = Colors.amber;
                 });
               },
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: color4,
-                )
-            ),
-          ],
-        ),
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color4,
+              )
+          ),
+        ],
       ),
     );
+
   }
 }

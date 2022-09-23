@@ -12,20 +12,20 @@ class FocusPointerDetector extends StatelessWidget {
   Function? onFocusLoss;
   Widget child;
 
-  late FocusPointerArea? _focusPointerArea;
-
   @override
   Widget build(BuildContext context) {
-    _focusPointerArea = context.findAncestorWidgetOfExactType<FocusPointerArea>();
+    _focusPointerArea = FocusPointerArea.of(context);
     assert(_focusPointerArea!=null);
+    print('found: ${_focusPointerArea!.pointerNotifier.value}');
+
     return MouseRegion(
       onEnter: (_){
-        if(_focusPointerArea!.pointerNotifier.value && onFocused != null){
+        if( context.findAncestorWidgetOfExactType<FocusPointerAreaNotifier>()!.pointerNotifier.value && onFocused != null){
           onFocused!();
         }
       },
       onExit: (_){
-        if(_focusPointerArea!.pointerNotifier.value && onFocusLoss != null){
+        if( context.findAncestorWidgetOfExactType<FocusPointerAreaNotifier>()!.pointerNotifier.value && onFocusLoss != null){
           onFocusLoss!();
         }
       },
