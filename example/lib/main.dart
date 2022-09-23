@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focus_detector/focus_detector.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,8 +34,18 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   FocusNode focusNode = FocusNode();
+  FocusNode focusNode2 = FocusNode();
+  FocusNode focusNode3 = FocusNode();
+  FocusNode focusNode4 = FocusNode();
 
   FocusScopeNode focusNodeScope = FocusScopeNode();
+
+  Color color1 = Colors.amber;
+  Color color2 = Colors.amber;
+  Color color3 = Colors.amber;
+  Color color4 = Colors.amber;
+
+  bool isPointed = false;
 
 
 
@@ -46,6 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
     focusNode.addListener(() {
       print('focused');
     });
+    focusNode2.addListener(() {
+      print('focused 2');
+    });
+    focusNode3.addListener(() {
+      print('focused 3');
+    });
+    focusNode4.addListener(() {
+      print('focused 4');
+    });
+    focusNode.requestFocus(focusNode2);
   }
 
   @override
@@ -59,38 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FocusTrapArea(
-              focusNode: focusNode,
-              child: Container(
-                height: 50,
-                width: 200,
-                color: Colors.amber,
-              ),
-            ),
-            FocusTrap(
-              focusScopeNode: focusNodeScope,
-              child: Container(
-                height: 50,
-                width: 200,
-                color: Colors.amber,
-              ),
-            ),
-            FocusTrapArea(
-              focusNode: focusNode,
-              child: Container(
-                height: 50,
-                width: 200,
-                color: Colors.amber,
-              ),
-            ),
-            FocusTrapArea(
-              focusNode: focusNode,
-              child: Container(
-                height: 50,
-                width: 200,
-                color: Colors.amber,
-              ),
-            ),
+            FocusDetector(),
+            FocusDetector(),
+            FocusDetector(),
+            FocusDetector(),
+            FocusDetector(),
+            FocusDetector(),
+            FocusDetector(),
           ],
         ),
       ),
