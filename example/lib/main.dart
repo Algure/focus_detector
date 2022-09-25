@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 
@@ -33,13 +34,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  FocusNode focusNode = FocusNode();
-  FocusNode focusNode2 = FocusNode();
-  FocusNode focusNode3 = FocusNode();
-  FocusNode focusNode4 = FocusNode();
-
-  FocusScopeNode focusNodeScope = FocusScopeNode();
-
   Color color1 = Colors.amber;
   Color color2 = Colors.amber;
   Color color3 = Colors.amber;
@@ -52,22 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    focusNodeScope.addListener(() {
-      print('focused');
-    });
-    focusNode.addListener(() {
-      print('focused');
-    });
-    focusNode2.addListener(() {
-      print('focused 2');
-    });
-    focusNode3.addListener(() {
-      print('focused 3');
-    });
-    focusNode4.addListener(() {
-      print('focused 4');
-    });
-    focusNode.requestFocus(focusNode2);
   }
 
 
@@ -77,87 +55,85 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: _getPackageWidget()
+      body: _getWidgetNoPackage()
     );
   }
 
   Widget _getPackageWidget(){
-    return  FocusPointerArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          FocusPointerDetector(
-              onFocused: (){
-                setState(() {
-                  color1 = Colors.pinkAccent;
-                });
-              },
-              onFocusLoss: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color1 = Colors.amber;
-                });
-              },
-              child: Container(
-                height: 100,
-                width: 100,
-                color: color1,
-              )
-          ),
-          FocusPointerDetector(
-              onFocused: (){
-                setState(() {
-                  color2 = Colors.pinkAccent;
-                });
-              },
-              onFocusLoss: (){
-                setState(() {
-                  color2 = Colors.amber;
-                });
-              },
-              child: Container(
-                height: 100,
-                width: 100,
-                color: color2,
-              )
-          ),
-          FocusPointerDetector(
-              onFocused: (){
-                setState(() {
-                  color3 = Colors.pinkAccent;
-                });
-              },
-              onFocusLoss: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color3 = Colors.amber;
-                });
-              },
-              child: Container(
-                height: 100,
-                width: 100,
-                color: color3,
-              )
-          ),
-          FocusPointerDetector(
-              onFocused: (){
-                setState(() {
-                  color4 = Colors.pinkAccent;
-                });
-              },
-              onFocusLoss: (){
-                setState(() {
-                  color4 = Colors.amber;
-                });
-              },
-              child: Container(
-                height: 100,
-                width: 100,
-                color: color4,
-              )
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        FocusPointerDetector(
+            onFocused: (){
+              setState(() {
+                color1 = Colors.pinkAccent;
+              });
+            },
+            onFocusLoss: (){
+              // if(!pointerNotifier.value) return;
+              setState(() {
+                color1 = Colors.amber;
+              });
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              color: color1,
+            )
+        ),
+        FocusPointerDetector(
+            onFocused: (){
+              setState(() {
+                color2 = Colors.pinkAccent;
+              });
+            },
+            onFocusLoss: (){
+              setState(() {
+                color2 = Colors.amber;
+              });
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              color: color2,
+            )
+        ),
+        FocusPointerDetector(
+            onFocused: (){
+              setState(() {
+                color3 = Colors.pinkAccent;
+              });
+            },
+            onFocusLoss: (){
+              // if(!pointerNotifier.value) return;
+              setState(() {
+                color3 = Colors.amber;
+              });
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              color: color3,
+            )
+        ),
+        FocusPointerDetector(
+            onFocused: (){
+              setState(() {
+                color4 = Colors.pinkAccent;
+              });
+            },
+            onFocusLoss: (){
+              setState(() {
+                color4 = Colors.amber;
+              });
+            },
+            child: Container(
+              height: 100,
+              width: 100,
+              color: color4,
+            )
+        ),
+      ],
     );
 
   }
@@ -165,15 +141,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getWidgetNoPackage(){
     return  Listener(
       onPointerDown: (_){
-        pointerNotifier.value = true;
-        pointerNotifier.notifyListeners();
+        print('point down');
+       isPointed = true;
         if(mounted) {
           setState(() {});
         }
       },
       onPointerUp: (_){
-        pointerNotifier.value = false;
-        pointerNotifier.notifyListeners();
+        print('point up');
+        isPointed = false;
         if(mounted) {
           setState(() {});
         }
@@ -181,81 +157,67 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          MouseRegion(
-              onEnter: (_){
-                if(!pointerNotifier.value) return;
+          MouseDetector(
+              onEnter: (){
+                print('mouse down');
+                if(!isPointed) return;
                 setState(() {
                   color1 = Colors.pinkAccent;
                 });
               },
-              onExit: (_){
+              onExit: (){
                 // if(!pointerNotifier.value) return;
                 setState(() {
                   color1 = Colors.amber;
                 });
               },
-              child: Container(
-                height: 100,
-                width: 100,
                 color: color1,
-              )
           ),
-          MouseRegion(
-              onEnter: (_){
-                if(!pointerNotifier.value) return;
+          MouseDetector(
+              onEnter: (){
+                if(!isPointed) return;
                 setState(() {
                   color2 = Colors.pinkAccent;
                 });
               },
-              onExit: (_){
+              onExit: (){
                 // if(!pointerNotifier.value) return;
                 setState(() {
                   color2 = Colors.amber;
                 });
               },
-              child: Container(
-                height: 100,
-                width: 100,
+
                 color: color2,
-              )
           ),
-          MouseRegion(
-              onEnter: (_){
-                if(!pointerNotifier.value) return;
+          MouseDetector(
+              onEnter: (){
+                if(!isPointed) return;
                 setState(() {
                   color3 = Colors.pinkAccent;
                 });
               },
-              onExit: (_){
+              onExit: (){
                 // if(!pointerNotifier.value) return;
                 setState(() {
                   color3 = Colors.amber;
                 });
               },
-              child: Container(
-                height: 100,
-                width: 100,
                 color: color3,
-              )
           ),
-          MouseRegion(
-              onEnter: (_){
-                if(!pointerNotifier.value) return;
-                // setState(() {
+          MouseDetector(
+              onEnter: (){
+                if(!isPointed) return;
+                setState(() {
                   color4 = Colors.pinkAccent;
-                // });
+                });
               },
-              onExit: (_){
+              onExit: (){
                 // if(!pointerNotifier.value) return;
-                // setState(() {
+                setState(() {
                   color4 = Colors.amber;
-                // });
+                });
               },
-              child: Container(
-                height: 100,
-                width: 100,
                 color: color4,
-              )
           ),
         ],
       ),
@@ -263,3 +225,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 }
+
+class MouseDetector extends StatelessWidget {
+  MouseDetector({Key? key,
+    required this.color,
+    required this.onEnter,
+    required this.onExit
+  }) : super(key: key);
+
+  Function() onEnter;
+  Function() onExit;
+  Color color;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+        onEnter: (_)=> onEnter.call(),
+        onExit: (_)=> onExit.call(),
+        child: Container(
+          height: 100,
+          width: 100,
+          color: color,
+        )
+    );
+  }
+}
+
