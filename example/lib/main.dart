@@ -56,85 +56,87 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: _getWidgetNoPackage()
+      body: _getPackageWidget()
     );
   }
 
   Widget _getPackageWidget(){
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        FocusPointerDetector(
-            onFocused: (){
-              setState(() {
-                color1 = Colors.pinkAccent;
-              });
-            },
-            onFocusLoss: (){
-              // if(!pointerNotifier.value) return;
-              setState(() {
-                color1 = Colors.amber;
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 100,
-              color: color1,
-            )
-        ),
-        FocusPointerDetector(
-            onFocused: (){
-              setState(() {
-                color2 = Colors.pinkAccent;
-              });
-            },
-            onFocusLoss: (){
-              setState(() {
-                color2 = Colors.amber;
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 100,
-              color: color2,
-            )
-        ),
-        FocusPointerDetector(
-            onFocused: (){
-              setState(() {
-                color3 = Colors.pinkAccent;
-              });
-            },
-            onFocusLoss: (){
-              // if(!pointerNotifier.value) return;
-              setState(() {
-                color3 = Colors.amber;
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 100,
-              color: color3,
-            )
-        ),
-        FocusPointerDetector(
-            onFocused: (){
-              setState(() {
-                color4 = Colors.pinkAccent;
-              });
-            },
-            onFocusLoss: (){
-              setState(() {
-                color4 = Colors.amber;
-              });
-            },
-            child: Container(
-              height: 100,
-              width: 100,
-              color: color4,
-            )
-        ),
-      ],
+    return FocusPointerArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color1 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                // if(!pointerNotifier.value) return;
+                setState(() {
+                  color1 = Colors.amber;
+                });
+              },
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color1,
+              )
+          ),
+          FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color2 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color2 = Colors.amber;
+                });
+              },
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color2,
+              )
+          ),
+          FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color3 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                // if(!pointerNotifier.value) return;
+                setState(() {
+                  color3 = Colors.amber;
+                });
+              },
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color3,
+              )
+          ),
+          FocusPointerDetector(
+              onFocused: (){
+                setState(() {
+                  color4 = Colors.pinkAccent;
+                });
+              },
+              onFocusLoss: (){
+                setState(() {
+                  color4 = Colors.amber;
+                });
+              },
+              child: Container(
+                height: 100,
+                width: 100,
+                color: color4,
+              )
+          ),
+        ],
+      ),
     );
 
   }
@@ -142,14 +144,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getWidgetNoPackage(){
     return  Listener(
       onPointerDown: (_){
-        print('point down');
+        // print('point down');
        isPointed = true;
         if(mounted) {
           setState(() {});
         }
       },
       onPointerUp: (_){
-        print('point up');
+        // print('point up');
         isPointed = false;
         if(mounted) {
           setState(() {});
@@ -160,8 +162,8 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           MouseDetector(
               onEnter: (){
-                print('mouse down');
-                if(!isPointed) return;
+                // print('mouse down');
+                // if(!isPointed) return;
                 setState(() {
                   color1 = Colors.pinkAccent;
                 });
@@ -176,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           MouseDetector(
               onEnter: (){
-                if(!isPointed) return;
+                // if(!isPointed) return;
                 setState(() {
                   color2 = Colors.pinkAccent;
                 });
@@ -192,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           MouseDetector(
               onEnter: (){
-                if(!isPointed) return;
+                // if(!isPointed) return;
                 setState(() {
                   color3 = Colors.pinkAccent;
                 });
@@ -207,7 +209,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           MouseDetector(
               onEnter: (){
-                if(!isPointed) return;
+                // if(!isPointed) return;
                 setState(() {
                   color4 = Colors.pinkAccent;
                 });
