@@ -49,7 +49,6 @@ import 'package:focus_detector/src/focus_notifier.dart';
 //   }
 // }
 
-
 class FocusPointerDetector extends StatefulWidget {
   const FocusPointerDetector({Key? key,
     required this.child,
