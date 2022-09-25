@@ -1,11 +1,19 @@
 
 import 'dart:core';
-import 'dart:core' as cr;
 
 import 'package:flutter/material.dart';
 
 import 'focus_notifier.dart';
 
+/// Focus area is required to provide listener for pointer up and down events and then trigger callbacts on
+/// [FocusPointerDetector] widgets when pointer enters the region of such widgets.
+/// This widget must be an ancestor of [FocusPointerDetector] and share same context. It should appear only once
+/// anywhere in the widget tree as an ancestor of [FocusPointerDetector] and it take just one required widget parameter
+/// which should contain [FocusPointerDetector] widgets.
+///
+/// As this widget is essentially a [Listener], using listener widgets at
+/// any other point in the widget tree would lead to erratic behaviour.
+///
 class FocusPointerArea extends StatefulWidget {
   const FocusPointerArea({Key? key, required this.child}) : super(key: key);
 
@@ -16,20 +24,19 @@ class FocusPointerArea extends StatefulWidget {
 }
 
 class _FocusPointerAreaState extends State<FocusPointerArea> {
+  /// This variable [_isPointed] tracks the pointer state of the screen and is broadcasted to [FocusPointerDetector] widgets further
+  /// down the tree via [FocusNotifierWidget] an [InheritedNotifier].
+  ///
   bool _isPointed = false;
-
 
   @override
   Widget build(BuildContext context) {
     return Listener(
       onPointerDown: (mouseEvent){
-        print('pointer down');
         setPointer(true);
       },
       onPointerUp: (mouseEvent){
-        print('cancelled');
         setPointer(false);
-        // print(_counterValueNotifier.l)
       },
       child: FocusNotifierWidget(
           isPointed: _isPointed,

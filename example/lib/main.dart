@@ -138,7 +138,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-
   }
 
   Widget _getWidgetNoPackage(){
@@ -225,7 +224,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-
   }
 }
 

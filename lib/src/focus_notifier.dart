@@ -13,7 +13,6 @@ class FocusNotifierWidget extends InheritedNotifier{
     return context.dependOnInheritedWidgetOfExactType<FocusNotifierWidget>();
   }
 
-
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;
 
