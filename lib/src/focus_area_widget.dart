@@ -22,6 +22,7 @@ class _FocusPointerAreaState extends State<FocusPointerArea> {
   Widget build(BuildContext context) {
     return Listener(
       onPointerDown: (mouseEvent){
+        print('pointer down');
         setPointer(true);
       },
       onPointerUp: (mouseEvent){

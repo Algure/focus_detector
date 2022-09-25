@@ -18,13 +18,13 @@ class FocusPointerDetector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   if(FocusNotifierWidget.of(context)!.isPointed){
-    //     onFocused!.call();
-    //   }else{
-    //     onFocusLoss!.call();
-    //   }
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if(FocusNotifierWidget.of(context)!.isPointed){
+        onFocused!.call();
+      }else{
+        onFocusLoss!.call();
+      }
+    });
     return MouseRegion(
       onEnter: (_){
         print('entered: ${FocusNotifierWidget.of(context)!.isPointed}');
@@ -33,10 +33,10 @@ class FocusPointerDetector extends StatelessWidget {
         }
       },
       onHover: (_){
-        // print('hoverinng: ${FocusNotifierWidget.of(context)!.isPointed}');
-        // if( FocusNotifierWidget.of(context)!.isPointed && onFocused != null){
-        //   onFocused!.call();
-        // }
+        print('hoverinng: ${FocusNotifierWidget.of(context)!.isPointed}');
+        if( FocusNotifierWidget.of(context)!.isPointed && onFocused != null){
+          onFocused!.call();
+        }
       },
       onExit: (_){
         // print('exiting: ${FocusNotifierWidget.of(context)!.isPointed}');
