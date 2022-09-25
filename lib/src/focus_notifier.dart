@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FocusNotifierWidget extends InheritedWidget{
+class FocusNotifierWidget extends InheritedNotifier{
 
   final bool isPointed;
 
@@ -12,6 +12,7 @@ class FocusNotifierWidget extends InheritedWidget{
   static FocusNotifierWidget? of(BuildContext context){
     return context.dependOnInheritedWidgetOfExactType<FocusNotifierWidget>();
   }
+
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => true;

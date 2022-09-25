@@ -18,6 +18,7 @@ class FocusPointerArea extends StatefulWidget {
 class _FocusPointerAreaState extends State<FocusPointerArea> {
   bool _isPointed = false;
 
+
   @override
   Widget build(BuildContext context) {
     return Listener(
