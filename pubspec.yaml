@@ -1,7 +1,7 @@
 name: focus_detector
-description: Flutter drag_touch_detector
+description: Listen to user clicks and drag events over portions of your screen. Implement callbacks to handle pointer events over specific regions of your screen.
 version: 0.0.1
-homepage:
+homepage: https://github.com/Algure/focus_detector
 
 environment:
   sdk: ">=2.17.6 <3.0.0"

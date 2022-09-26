@@ -23,6 +23,4 @@ void main() {
     expect(con3.color!.value, Colors.pinkAccent.value);
     expect(con4.color!.value, Colors.pinkAccent.value);
   });
-
 }
-

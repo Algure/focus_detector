@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 
-
 class TestApp extends StatelessWidget {
   const TestApp({Key? key}) : super(key: key);
 
@@ -19,7 +18,8 @@ class TestApp extends StatelessWidget {
 }
 
 class TestWidget extends StatefulWidget {
-  const TestWidget({Key? key, this.height=500, this.width=300}) : super(key: key);
+  const TestWidget({Key? key, this.height = 500, this.width = 300})
+      : super(key: key);
 
   final double height;
   final double width;
@@ -29,25 +29,20 @@ class TestWidget extends StatefulWidget {
 }
 
 class _TestWidgetState extends State<TestWidget> {
-
   Color color1 = Colors.amber;
   Color color2 = Colors.amber;
   Color color3 = Colors.amber;
   Color color4 = Colors.amber;
 
-
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: _getPackageWidgetTree()
-    );
+    return Scaffold(body: _getPackageWidgetTree());
   }
 
-  Widget _getPackageWidgetTree(){
+  Widget _getPackageWidgetTree() {
     return Container(
       height: widget.height,
       width: widget.width,
@@ -56,7 +51,7 @@ class _TestWidgetState extends State<TestWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color1 = Colors.pinkAccent;
                   });
@@ -72,10 +67,9 @@ class _TestWidgetState extends State<TestWidget> {
                   height: 100,
                   width: 100,
                   color: color1,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color2 = Colors.pinkAccent;
                   });
@@ -90,10 +84,9 @@ class _TestWidgetState extends State<TestWidget> {
                   height: 100,
                   width: 100,
                   color: color2,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color3 = Colors.pinkAccent;
                   });
@@ -108,10 +101,9 @@ class _TestWidgetState extends State<TestWidget> {
                   height: 100,
                   width: 100,
                   color: color3,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color4 = Colors.pinkAccent;
                   });
@@ -126,8 +118,7 @@ class _TestWidgetState extends State<TestWidget> {
                   height: 100,
                   width: 100,
                   color: color4,
-                )
-            ),
+                )),
           ],
         ),
       ),

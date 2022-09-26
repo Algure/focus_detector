@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -34,42 +35,199 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   Color color1 = Colors.amber;
   Color color2 = Colors.amber;
   Color color3 = Colors.amber;
   Color color4 = Colors.amber;
+  Color color5 = Colors.amber;
+  Color color6 = Colors.amber;
+  Color color7 = Colors.amber;
+  Color color8 = Colors.amber;
+  Color color9 = Colors.amber;
 
   bool isPointed = false;
 
   ValueNotifier<bool> pointerNotifier = ValueNotifier<bool>(false);
 
-
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+        body: Container(
+      alignment: Alignment.center,
+      child: FocusPointerArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color1 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color1 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con1'),
+                  height: 100,
+                  width: 100,
+                  color: color1,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color2 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color2 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con2'),
+                  height: 100,
+                  width: 100,
+                  color: color2,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color3 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color3 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con3'),
+                  height: 100,
+                  width: 100,
+                  color: color3,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color4 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color4 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color4,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color5 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color5 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color5,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color6 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color6 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color6,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color7 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color7 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color7,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color8 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color8 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color8,
+                )),
+            FocusPointerDetector(
+                onFocused: () {
+                  setState(() {
+                    color9 = Colors.pinkAccent;
+                  });
+                },
+                onFocusLoss: () {
+                  setState(() {
+                    color9 = Colors.amber;
+                  });
+                },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color9,
+                )),
+          ],
+        ),
       ),
-      body: _getGridPackageWidgetTree()
-    );
+    ));
   }
 
-
-
-
-  Widget _getGridPackageWidgetTree(){
+  Widget _getGridPackageWidgetTree() {
     return Container(
       child: FocusPointerArea(
         child: EaziGrid(
             isScrollable: true,
             horizontalAlignment: EaziAlignment.start,
             children: [
-              for(int i=0; i<=50; i++)
+              for (int i = 0; i <= 50; i++)
                 FocusTestItem(
                   keepColor: true,
                 )
@@ -78,14 +236,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _getTestPackageWidgetTree(){
+  Widget _getTestPackageWidgetTree() {
     return Container(
       child: FocusPointerArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color1 = Colors.pinkAccent;
                   });
@@ -95,10 +253,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                   width: 100,
                   color: color1,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color2 = Colors.pinkAccent;
                   });
@@ -108,10 +265,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                   width: 100,
                   color: color2,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color3 = Colors.pinkAccent;
                   });
@@ -121,10 +277,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                   width: 100,
                   color: color3,
-                )
-            ),
+                )),
             FocusPointerDetector(
-                onFocused: (){
+                onFocused: () {
                   setState(() {
                     color4 = Colors.pinkAccent;
                   });
@@ -134,26 +289,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 100,
                   width: 100,
                   color: color4,
-                )
-            ),
+                )),
           ],
         ),
       ),
     );
   }
 
-  Widget _getPackageWidgetTree(){
+  Widget _getPackageWidgetTree() {
     return FocusPointerArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           FocusPointerDetector(
-              onFocused: (){
+              onFocused: () {
                 setState(() {
                   color1 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onFocusLoss: () {
                 // if(!pointerNotifier.value) return;
                 setState(() {
                   color1 = Colors.amber;
@@ -163,15 +317,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 width: 100,
                 color: color1,
-              )
-          ),
+              )),
           FocusPointerDetector(
-              onFocused: (){
+              onFocused: () {
                 setState(() {
                   color2 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onFocusLoss: () {
                 setState(() {
                   color2 = Colors.amber;
                 });
@@ -180,15 +333,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 width: 100,
                 color: color2,
-              )
-          ),
+              )),
           FocusPointerDetector(
-              onFocused: (){
+              onFocused: () {
                 setState(() {
                   color3 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onFocusLoss: () {
                 // if(!pointerNotifier.value) return;
                 setState(() {
                   color3 = Colors.amber;
@@ -198,15 +350,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 width: 100,
                 color: color3,
-              )
-          ),
+              )),
           FocusPointerDetector(
-              onFocused: (){
+              onFocused: () {
                 setState(() {
                   color4 = Colors.pinkAccent;
                 });
               },
-              onFocusLoss: (){
+              onFocusLoss: () {
                 setState(() {
                   color4 = Colors.amber;
                 });
@@ -215,13 +366,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 width: 100,
                 color: color4,
-              )
-          ),
+              )),
         ],
       ),
     );
   }
-
 }
-
-
