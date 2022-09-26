@@ -11,7 +11,6 @@ a callback is triggered. A callback is also triggered when the pointer (user fin
 All `RegionDetector` widgets in the `FocusArea` can trigger callbacks: `onFocused` and `onFocusLoss`.
 
 
-
 **FocusArea**: This widget provides a listener for pointer up and down events and then trigger callbacks on `RegionDetector` widgets when the pointer enters the region of such widgets. This widget must be an ancestor of `RegionDetector`.
 
 **RegionDetector**: This widget is meant to wrap target child widgets whose regions are to be monitored for touch events and must be one of the children of a `FocusArea`. It turns the region/widget wrapped by this widget into a listener for callbacks.
@@ -44,7 +43,7 @@ import 'package:focus_detector/region_detector.dart';
 
 Check project in the `/example` folder for elaboration.
 
-As earlier stated, the `FocusArea` must be an ancestor of `FocusDetector` widgets as shown below.
+As earlier stated, the `FocusArea` must be an ancestor of `RegionDetector` widgets as shown below.
 
 ```dart
   Color color1 = Colors.amber;
