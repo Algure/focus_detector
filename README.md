@@ -1,6 +1,6 @@
 
 
-Listen to user clicks and drag over the screen. When the drag enters a region enclosed by a `RegionDetector` widget,
+Listen to user click and drag events over specific regions of your app. When the drag enters a region enclosed by a `RegionDetector` widget,
 a callback is triggered. A callback is also triggered when the pointer (user finger) leaves the `RegionDetector`.
 
 ## Features
@@ -142,7 +142,7 @@ Resulting screen behaviour.
 
 ## Additional information
 
-The use of Listener, MouseRegion or GestureDetectors lower down the widget tree after the `FocusArea` makes the widget tree prone to erratic behaviour. Common gestures can easily be replaced by `onFocused` event callback.
+The use of Listener, MouseRegion or GestureDetector widgets lower down the widget tree after the `FocusArea` makes the widget tree prone to erratic behaviour. Common gestures can easily be replaced by `onFocused` event callback.
 
 For contributions, feel free to open pull requests and file issues on the main github repository.
 
