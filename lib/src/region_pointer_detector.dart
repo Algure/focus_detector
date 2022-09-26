@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:focus_detector/src/focus_notifier.dart';
+
+import 'focus_notifier.dart';
 
 /// The [RegionDetector] turns the region/widget wrapped by this widget into a listener for focus_detector callbacks and is meant to wrap widgets
 /// whose regions are to be monitored for touch events.

@@ -1,7 +1,7 @@
 import 'package:eazigrid/eazigrid.dart';
 import 'package:example/focus_test_item.dart';
 import 'package:flutter/material.dart';
-import 'package:focus_detector/region_detector.dart';
+import 'package:region_detector/region_detector.dart';
 
 void main() {
   EaziGridFlowHandler.handleEaziError();
