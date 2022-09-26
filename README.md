@@ -35,7 +35,7 @@ dependencies:
 Add import statement to target dart file.
 
 ```dart
-import 'package:focus_detector/region_detector.dart';
+import 'package:region_detector/region_detector.dart';
 ```
 
 
