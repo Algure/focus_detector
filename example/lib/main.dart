@@ -1,7 +1,7 @@
 import 'package:eazigrid/eazigrid.dart';
 import 'package:example/focus_test_item.dart';
 import 'package:flutter/material.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:focus_detector/region_detector.dart';
 
 void main() {
   EaziGridFlowHandler.handleEaziError();
@@ -57,11 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         body: Container(
       alignment: Alignment.center,
-      child: FocusPointerArea(
+      child: FocusArea(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color1 = Colors.pinkAccent;
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color1,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color2 = Colors.pinkAccent;
@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color2,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color3 = Colors.pinkAccent;
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color3,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color4 = Colors.pinkAccent;
@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color4,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color5 = Colors.pinkAccent;
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color5,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color6 = Colors.pinkAccent;
@@ -163,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color6,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color7 = Colors.pinkAccent;
@@ -180,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color7,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color8 = Colors.pinkAccent;
@@ -197,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color8,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color9 = Colors.pinkAccent;
@@ -222,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _getGridPackageWidgetTree() {
     return Container(
-      child: FocusPointerArea(
+      child: FocusArea(
         child: EaziGrid(
             isScrollable: true,
             horizontalAlignment: EaziAlignment.start,
@@ -238,11 +238,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _getTestPackageWidgetTree() {
     return Container(
-      child: FocusPointerArea(
+      child: FocusArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color1 = Colors.pinkAccent;
@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color1,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color2 = Colors.pinkAccent;
@@ -266,7 +266,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color2,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color3 = Colors.pinkAccent;
@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: 100,
                   color: color3,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color4 = Colors.pinkAccent;
@@ -297,11 +297,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _getPackageWidgetTree() {
-    return FocusPointerArea(
+    return FocusArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          FocusPointerDetector(
+          RegionDetector(
               onFocused: () {
                 setState(() {
                   color1 = Colors.pinkAccent;
@@ -318,7 +318,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 100,
                 color: color1,
               )),
-          FocusPointerDetector(
+          RegionDetector(
               onFocused: () {
                 setState(() {
                   color2 = Colors.pinkAccent;
@@ -334,7 +334,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 100,
                 color: color2,
               )),
-          FocusPointerDetector(
+          RegionDetector(
               onFocused: () {
                 setState(() {
                   color3 = Colors.pinkAccent;
@@ -351,7 +351,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 100,
                 color: color3,
               )),
-          FocusPointerDetector(
+          RegionDetector(
               onFocused: () {
                 setState(() {
                   color4 = Colors.pinkAccent;

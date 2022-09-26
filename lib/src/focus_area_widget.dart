@@ -13,16 +13,16 @@ import 'focus_notifier.dart';
 /// As this widget is essentially a [Listener], using listener widgets at
 /// any other point in the widget tree would lead to erratic behaviour.
 ///
-class FocusPointerArea extends StatefulWidget {
-  const FocusPointerArea({Key? key, required this.child}) : super(key: key);
+class FocusArea extends StatefulWidget {
+  const FocusArea({Key? key, required this.child}) : super(key: key);
 
   final Widget child;
 
   @override
-  State<FocusPointerArea> createState() => _FocusPointerAreaState();
+  State<FocusArea> createState() => _FocusAreaState();
 }
 
-class _FocusPointerAreaState extends State<FocusPointerArea> {
+class _FocusAreaState extends State<FocusArea> {
   /// This variable [_isPointed] tracks the pointer state of the screen and is broadcasted to [FocusPointerDetector] widgets further
   /// down the tree via [FocusNotifierWidget] an [InheritedNotifier].
   ///

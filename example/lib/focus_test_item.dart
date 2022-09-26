@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:focus_detector/region_detector.dart';
 
 class FocusTestItem extends StatefulWidget {
   FocusTestItem({Key? key, this.keepColor = false}) : super(key: key);
@@ -18,7 +18,7 @@ class _FocusTestItemState extends State<FocusTestItem> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: FocusPointerDetector(
+      child: RegionDetector(
           onFocused: () {
             setState(() {
               color = Colors.pinkAccent;

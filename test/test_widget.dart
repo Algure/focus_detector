@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:focus_detector/region_detector.dart';
 
 class TestApp extends StatelessWidget {
   const TestApp({Key? key}) : super(key: key);
@@ -46,11 +46,11 @@ class _TestWidgetState extends State<TestWidget> {
     return Container(
       height: widget.height,
       width: widget.width,
-      child: FocusPointerArea(
+      child: FocusArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color1 = Colors.pinkAccent;
@@ -68,7 +68,7 @@ class _TestWidgetState extends State<TestWidget> {
                   width: 100,
                   color: color1,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color2 = Colors.pinkAccent;
@@ -85,7 +85,7 @@ class _TestWidgetState extends State<TestWidget> {
                   width: 100,
                   color: color2,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color3 = Colors.pinkAccent;
@@ -102,7 +102,7 @@ class _TestWidgetState extends State<TestWidget> {
                   width: 100,
                   color: color3,
                 )),
-            FocusPointerDetector(
+            RegionDetector(
                 onFocused: () {
                   setState(() {
                     color4 = Colors.pinkAccent;

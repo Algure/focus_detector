@@ -1,4 +1,4 @@
-name: focus_detector
+name: region_detector
 description: Listen to user clicks and drag events over portions of your screen. Implement callbacks to handle pointer events over specific regions of your screen.
 version: 0.0.1
 homepage: https://github.com/Algure/focus_detector

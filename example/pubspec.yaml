@@ -14,7 +14,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   eazigrid: ^0.0.1
-  focus_detector:
+  region_detector:
     path: ../
 
 dev_dependencies:

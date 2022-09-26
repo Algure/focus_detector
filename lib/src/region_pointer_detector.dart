@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:focus_detector/src/focus_notifier.dart';
 
-/// The [FocusPointerDetector] turns the region/widget wrapped by this widget into a listener for focus_detector callbacks and is meant to wrap widgets
+/// The [RegionDetector] turns the region/widget wrapped by this widget into a listener for focus_detector callbacks and is meant to wrap widgets
 /// whose regions are to be monitored for touch events.
 ///
 /// Note: Use of listener, MouseRegion or GestureDetector as child widgets is prone to erratic behaviour.
-class FocusPointerDetector extends StatefulWidget {
-  const FocusPointerDetector(
+class RegionDetector extends StatefulWidget {
+  const RegionDetector(
       {Key? key, required this.child, this.onFocused, this.onFocusLoss})
       : super(key: key);
 
@@ -22,10 +22,10 @@ class FocusPointerDetector extends StatefulWidget {
   final Widget child;
 
   @override
-  State<FocusPointerDetector> createState() => _FocusPointerDetectorState();
+  State<RegionDetector> createState() => _RegionDetectorState();
 }
 
-class _FocusPointerDetectorState extends State<FocusPointerDetector> {
+class _RegionDetectorState extends State<RegionDetector> {
   /// Required to keep track of pointer state in case the pointer down event is called
   /// when hovering above widget in order to call the [widget.onFocused] function.
   bool _isPointerCalled = false;

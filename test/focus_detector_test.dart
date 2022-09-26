@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:focus_detector/focus_detector.dart';
+import 'package:focus_detector/region_detector.dart';
 
 import 'test_widget.dart';
 
