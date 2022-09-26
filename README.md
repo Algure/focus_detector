@@ -1,4 +1,5 @@
 
+# Region Detector
 
 Listen to user click and drag events over specific regions of your app. When the drag enters a region enclosed by a `RegionDetector` widget,
 a callback is triggered. A callback is also triggered when the pointer (user finger) leaves the `RegionDetector`.
