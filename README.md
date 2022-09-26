@@ -30,7 +30,7 @@ dependencies:
     sdk: flutter
 
   ...
-  eazigrid: ^[latest_version]
+  region_detector: [latest_version]
   ```
 
 Add import statement to target dart file.
