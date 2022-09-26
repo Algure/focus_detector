@@ -49,18 +49,102 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: _getPackageWidget()
+      body: _getTestPackageWidgetTree()
     );
   }
 
-  Widget _getPackageWidget(){
+  Widget _getTestPackageWidgetTree(){
+    return Container(
+      child: FocusPointerArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color1 = Colors.pinkAccent;
+                  });
+                },
+                // onFocusLoss: (){
+                //   // if(!pointerNotifier.value) return;
+                //   setState(() {
+                //     color1 = Colors.amber;
+                //   });
+                // },
+                child: Container(
+                  key: Key('con1'),
+                  height: 100,
+                  width: 100,
+                  color: color1,
+                )
+            ),
+            FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color2 = Colors.pinkAccent;
+                  });
+                },
+                // onFocusLoss: (){
+                //   setState(() {
+                //     color2 = Colors.amber;
+                //   });
+                // },
+                child: Container(
+                  key: Key('con2'),
+                  height: 100,
+                  width: 100,
+                  color: color2,
+                )
+            ),
+            FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color3 = Colors.pinkAccent;
+                  });
+                },
+                // onFocusLoss: (){
+                //   setState(() {
+                //     color3 = Colors.amber;
+                //   });
+                // },
+                child: Container(
+                  key: Key('con3'),
+                  height: 100,
+                  width: 100,
+                  color: color3,
+                )
+            ),
+            FocusPointerDetector(
+                onFocused: (){
+                  setState(() {
+                    color4 = Colors.pinkAccent;
+                  });
+                },
+                // onFocusLoss: (){
+                //   setState(() {
+                //     color4 = Colors.amber;
+                //   });
+                // },
+                child: Container(
+                  key: Key('con4'),
+                  height: 100,
+                  width: 100,
+                  color: color4,
+                )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _getPackageWidgetTree(){
     return FocusPointerArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

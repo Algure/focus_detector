@@ -11,8 +11,8 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Listen to user clicks and drag over the screen. When the drag enters a region enclosed by a `FocusDetector` widget,
+a callback is triggered. A callback is also triggered when the pointer (user finger) leaves the `FocusDetector`.
 
 ## Features
 
