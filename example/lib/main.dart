@@ -1,9 +1,10 @@
-import 'package:example/mouse_detector.dart';
-import 'package:flutter/gestures.dart';
+import 'package:eazigrid/eazigrid.dart';
+import 'package:example/focus_test_item.dart';
 import 'package:flutter/material.dart';
 import 'package:focus_detector/focus_detector.dart';
 
 void main() {
+  EaziGridFlowHandler.handleEaziError();
   runApp(const MyApp());
 }
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Focus Detector Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -33,7 +34,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
   Color color1 = Colors.amber;
   Color color2 = Colors.amber;
@@ -55,7 +55,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: _getTestPackageWidgetTree()
+      body: _getGridPackageWidgetTree()
+    );
+  }
+
+
+
+
+  Widget _getGridPackageWidgetTree(){
+    return Container(
+      child: FocusPointerArea(
+        child: EaziGrid(
+            isScrollable: true,
+            horizontalAlignment: EaziAlignment.start,
+            children: [
+              for(int i=0; i<=50; i++)
+                FocusTestItem(
+                  keepColor: true,
+                )
+            ]),
+      ),
     );
   }
 
@@ -71,12 +90,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color1 = Colors.pinkAccent;
                   });
                 },
-                // onFocusLoss: (){
-                //   // if(!pointerNotifier.value) return;
-                //   setState(() {
-                //     color1 = Colors.amber;
-                //   });
-                // },
                 child: Container(
                   key: Key('con1'),
                   height: 100,
@@ -90,11 +103,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color2 = Colors.pinkAccent;
                   });
                 },
-                // onFocusLoss: (){
-                //   setState(() {
-                //     color2 = Colors.amber;
-                //   });
-                // },
                 child: Container(
                   key: Key('con2'),
                   height: 100,
@@ -108,11 +116,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color3 = Colors.pinkAccent;
                   });
                 },
-                // onFocusLoss: (){
-                //   setState(() {
-                //     color3 = Colors.amber;
-                //   });
-                // },
                 child: Container(
                   key: Key('con3'),
                   height: 100,
@@ -126,11 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     color4 = Colors.pinkAccent;
                   });
                 },
-                // onFocusLoss: (){
-                //   setState(() {
-                //     color4 = Colors.amber;
-                //   });
-                // },
                 child: Container(
                   key: Key('con4'),
                   height: 100,
@@ -224,91 +222,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _getWidgetNoPackage(){
-    return  Listener(
-      onPointerDown: (_){
-        // print('point down');
-       isPointed = true;
-        if(mounted) {
-          setState(() {});
-        }
-      },
-      onPointerUp: (_){
-        // print('point up');
-        isPointed = false;
-        if(mounted) {
-          setState(() {});
-        }
-      },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          MouseDetector(
-              onEnter: (){
-                // print('mouse down');
-                // if(!isPointed) return;
-                setState(() {
-                  color1 = Colors.pinkAccent;
-                });
-              },
-              onExit: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color1 = Colors.amber;
-                });
-              },
-                color: color1,
-          ),
-          MouseDetector(
-              onEnter: (){
-                // if(!isPointed) return;
-                setState(() {
-                  color2 = Colors.pinkAccent;
-                });
-              },
-              onExit: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color2 = Colors.amber;
-                });
-              },
-
-                color: color2,
-          ),
-          MouseDetector(
-              onEnter: (){
-                // if(!isPointed) return;
-                setState(() {
-                  color3 = Colors.pinkAccent;
-                });
-              },
-              onExit: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color3 = Colors.amber;
-                });
-              },
-                color: color3,
-          ),
-          MouseDetector(
-              onEnter: (){
-                // if(!isPointed) return;
-                setState(() {
-                  color4 = Colors.pinkAccent;
-                });
-              },
-              onExit: (){
-                // if(!pointerNotifier.value) return;
-                setState(() {
-                  color4 = Colors.amber;
-                });
-              },
-                color: color4,
-          ),
-        ],
-      ),
-    );
-  }
 }
 
 
