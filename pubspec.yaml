@@ -1,6 +1,6 @@
 name: region_detector
 description: Listen to user click and drag events over portions of your screen. Implement callbacks to handle pointer events over specific regions of your app screen.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Algure/region_detector
 
 environment:
