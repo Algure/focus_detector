@@ -1,4 +1,8 @@
 
+[![license](https://img.shields.io/badge/license-MIT-success.svg?style=flat-square)](https://github.com/Algure/azstore/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-success.svg?style=flat-square)](https://github.com/Algure/azstore/pulls)
+
+# Region Detector
 
 Listen to user click and drag events over specific regions of your app. When the drag enters a region enclosed by a `RegionDetector` widget,
 a callback is triggered. A callback is also triggered when the pointer (user finger) leaves the `RegionDetector`.
