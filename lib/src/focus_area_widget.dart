@@ -13,19 +13,29 @@ import 'focus_notifier.dart';
 /// As this widget is essentially a [Listener], using listener widgets at
 /// any other point in the widget tree would lead to erratic behaviour.
 ///
+
 class FocusArea extends StatefulWidget {
-  const FocusArea({Key? key, required this.child}) : super(key: key);
+  const FocusArea({Key? key,
+    required this.child,
+    this.onPointerDown,
+    this.onPointerUp
+  }) : super(key: key);
 
   final Widget child;
+  /// This callback that can be set to be called after the pointer is down.
+  final Function()? onPointerDown;
+  /// This callback that can be set to be called after the pointer is up.
+  final Function()? onPointerUp;
 
   @override
   State<FocusArea> createState() => _FocusAreaState();
 }
 
+
+/// This variable [_isPointed] tracks the pointer state of the screen and is broadcasted to [FocusPointerDetector] widgets further
+/// down the tree via [FocusNotifierWidget] an [InheritedNotifier].
+///
 class _FocusAreaState extends State<FocusArea> {
-  /// This variable [_isPointed] tracks the pointer state of the screen and is broadcasted to [FocusPointerDetector] widgets further
-  /// down the tree via [FocusNotifierWidget] an [InheritedNotifier].
-  ///
   bool _isPointed = false;
 
   @override
@@ -33,9 +43,15 @@ class _FocusAreaState extends State<FocusArea> {
     return Listener(
       onPointerDown: (mouseEvent) {
         setPointer(true);
+        if(widget.onPointerDown != null){
+          widget.onPointerDown!.call();
+        }
       },
       onPointerUp: (mouseEvent) {
         setPointer(false);
+        if(widget.onPointerUp != null){
+          widget.onPointerUp!.call();
+        }
       },
       child: FocusNotifierWidget(isPointed: _isPointed, child: widget.child),
     );

@@ -58,6 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Container(
       alignment: Alignment.center,
       child: FocusArea(
+        onPointerUp: (){
+          changeAllColors();
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -370,5 +373,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void changeAllColors() {
+     color1 = Colors.pinkAccent;
+     color2 = Colors.pinkAccent;
+     color3 = Colors.pinkAccent;
+     color4 = Colors.pinkAccent;
+     color5 = Colors.pinkAccent;
+     color6 = Colors.pinkAccent;
+     color7 = Colors.pinkAccent;
+     color8 = Colors.pinkAccent;
+     color9 = Colors.pinkAccent;
+     setState(() {
+
+     });
   }
 }
