@@ -17,6 +17,10 @@ All `RegionDetector` widgets in the `FocusArea` can trigger callbacks: `onFocuse
 
 **FocusArea**: This widget provides a listener for pointer up and down events and then trigger callbacks on `RegionDetector` widgets when the pointer enters the region of such widgets. This widget must be an ancestor of `RegionDetector`.
 
+**onPointerDown**: This callback can be set on the `FocusArea` widget to be called after the pointer is down.
+
+**onPointerUp**: This callback can also be set on the `FocusArea` widget to be called after the pointer is down.
+
 **RegionDetector**: This widget is meant to wrap target child widgets whose regions are to be monitored for touch events and must be one of the children of a `FocusArea`. It turns the region/widget wrapped by this widget into a listener for callbacks.
 
 **onFocused**: A callback function parameter attached to a `RegionDetector` which is called exactly once when the pointer enters the region of this widget while the pointer is clicked (down) or when the pointer is clicked while in the region of this widget.
